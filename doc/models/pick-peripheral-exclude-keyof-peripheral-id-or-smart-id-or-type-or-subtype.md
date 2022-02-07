@@ -12,7 +12,7 @@ From T, pick a set of properties whose keys are in the union K
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `label` | `string` | Required | - |
-| `className` | [`PeripheralClasses3Enum`](/doc/models/peripheral-classes-3-enum.md) | Required | The name of the class that handles this peripheral e.g. enocean_dimmer |
+| `className` | [`PeripheralClassesEnum`](/doc/models/peripheral-classes-enum.md) | Required | Refers to the class within the code that represents a device |
 | `hardwareId` | `string` | Required | The id of the end device e.g. aabbccdd as an enocean id for an enocean switch or 123 as a multisense network id for a smart power meter |
 | `gatewayId` | `string \| null` | Required | The id of the gateway used to communicate with this device<br>e.g. 543 a multisense network address for the multisense with an enocean addon |
 | `commDevice` | `string` | Required, Constant | The gateway used to communicate with this device. Uses gatewayId. e.g. multisense<br>**Default**: `'multisense'` |

@@ -25,12 +25,5 @@ The gateway for the SDK. This class acts as a factory for the Controllers and al
 
 | Name | Description |
 |  --- | --- |
-| config | Gets ConfigController |
-| health | Gets HealthController |
-| issues | Gets IssuesController |
-| network | Gets NetworkController |
-| peripheral | Gets PeripheralController |
-| scan | Gets ScanController |
-| stop | Gets StopController |
-| aPI | Gets ApiController |
+| mDefault | Gets DefaultController |
 

@@ -19,9 +19,3 @@ later specifies the exact type of universal input board.
 | `universalinput` |
 | `dali` |
 
-## Example
-
-```
-ble
-```
-

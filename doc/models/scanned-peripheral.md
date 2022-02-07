@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `className` | [`PeripheralClasses3Enum`](/doc/models/peripheral-classes-3-enum.md) | Required | The name of the class that handles this peripheral e.g. enocean_dimmer |
+| `className` | [`PeripheralClassesEnum`](/doc/models/peripheral-classes-enum.md) | Required | Refers to the class within the code that represents a device |
 | `hardwareId` | `string` | Required | The id of the end device e.g. aabbccdd as an enocean id for an enocean switch or 123 as a multisense network id for a smart power meter |
 | `modules` | `unknown[] \| null` | Required | - |
 
@@ -17,10 +17,13 @@
 
 ```json
 {
-  "className": "DigitalInputDoorContact",
-  "hardwareId": "string",
+  "className": "RelayHob",
+  "hardwareId": "hardwareId4",
   "modules": [
-    "ble"
+    {
+      "key1": "val1",
+      "key2": "val2"
+    }
   ]
 }
 ```

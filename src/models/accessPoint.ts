@@ -6,9 +6,9 @@
 
 import { boolean, number, object, Schema, string } from '../schema';
 import {
-  WifiFrequencyType1Enum,
-  wifiFrequencyType1EnumSchema,
-} from './wifiFrequencyType1Enum';
+  WifiFrequencyTypeEnum,
+  wifiFrequencyTypeEnumSchema,
+} from './wifiFrequencyTypeEnum';
 
 export interface AccessPoint {
   /** Name of the access point */
@@ -17,8 +17,7 @@ export interface AccessPoint {
   bssid: string;
   /** What frequency channel this access point is operating on */
   channel: number;
-  /** Whether it is a 2.4GHz or 5GHz network. Device from `channel` value */
-  frequency: WifiFrequencyType1Enum;
+  frequency: WifiFrequencyTypeEnum;
   /** Whether user has to provide a passphrase when connecting to this wifi */
   isPublic: boolean;
   /** The current signal quality of the access point, in percent */
@@ -34,7 +33,7 @@ export const accessPointSchema: Schema<AccessPoint> = object({
   ssid: ['ssid', string()],
   bssid: ['bssid', string()],
   channel: ['channel', number()],
-  frequency: ['frequency', wifiFrequencyType1EnumSchema],
+  frequency: ['frequency', wifiFrequencyTypeEnumSchema],
   isPublic: ['isPublic', boolean()],
   signalStrength: ['signalStrength', number()],
   isKnown: ['isKnown', boolean()],

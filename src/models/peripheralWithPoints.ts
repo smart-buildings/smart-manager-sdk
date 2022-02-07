@@ -16,9 +16,9 @@ import {
   unknown,
 } from '../schema';
 import {
-  PeripheralClasses3Enum,
-  peripheralClasses3EnumSchema,
-} from './peripheralClasses3Enum';
+  PeripheralClassesEnum,
+  peripheralClassesEnumSchema,
+} from './peripheralClassesEnum';
 import { Point, pointSchema } from './point';
 
 export interface PeripheralWithPoints {
@@ -29,8 +29,8 @@ export interface PeripheralWithPoints {
   type: string;
   subtype: string | null;
   label: string;
-  /** The name of the class that handles this peripheral e.g. enocean_dimmer */
-  className: PeripheralClasses3Enum;
+  /** Refers to the class within the code that represents a device */
+  className: PeripheralClassesEnum;
   /** The id of the end device e.g. aabbccdd as an enocean id for an enocean switch or 123 as a multisense network id for a smart power meter */
   hardwareId: string;
   /**
@@ -56,7 +56,7 @@ export const peripheralWithPointsSchema: Schema<PeripheralWithPoints> = object({
   type: ['type', string()],
   subtype: ['subtype', nullable(string())],
   label: ['label', string()],
-  className: ['className', peripheralClasses3EnumSchema],
+  className: ['className', peripheralClassesEnumSchema],
   hardwareId: ['hardwareId', string()],
   gatewayId: ['gatewayId', nullable(string())],
   commDevice: ['commDevice', string()],

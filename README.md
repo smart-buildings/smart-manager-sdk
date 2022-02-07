@@ -91,14 +91,7 @@ const client = new Client({
 
 ## List of APIs
 
-* [API](/doc/controllers/api.md)
-* [Config](/doc/controllers/config.md)
-* [Health](/doc/controllers/health.md)
-* [Issues](/doc/controllers/issues.md)
-* [Network](/doc/controllers/network.md)
-* [Peripheral](/doc/controllers/peripheral.md)
-* [Scan](/doc/controllers/scan.md)
-* [Stop](/doc/controllers/stop.md)
+* [Default](/doc/controllers/default.md)
 
 ## Classes Documentation
 

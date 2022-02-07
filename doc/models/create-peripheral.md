@@ -1,18 +1,14 @@
 
-# Peripheral With Points
+# Create Peripheral
 
 ## Structure
 
-`PeripheralWithPoints`
+`CreatePeripheral`
 
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `number` | Required | ID to describe this peripheral on this smart manager |
-| `smartId` | `string` | Required | The ID of this peripheral shown to smart-vue (which is unique per tenant+type) |
-| `type` | `string` | Required | - |
-| `subtype` | `string \| null` | Required | - |
 | `label` | `string` | Required | - |
 | `className` | [`PeripheralClassesEnum`](/doc/models/peripheral-classes-enum.md) | Required | Refers to the class within the code that represents a device |
 | `hardwareId` | `string` | Required | The id of the end device e.g. aabbccdd as an enocean id for an enocean switch or 123 as a multisense network id for a smart power meter |
@@ -21,17 +17,12 @@
 | `normallyClosed` | `boolean \| null` | Required | Whether the contact pair on a wired device is closed when it, or the device operating it, is in a deenergised state |
 | `templateId` | `string` | Required | A reference to an identifier in the template |
 | `modules` | `unknown[] \| null` | Required | List of add-on module/boards on this peripheral |
-| `points` | [`Point[]`](/doc/models/point.md) | Required | - |
-| `events` | `string[]` | Required | - |
+| `addToCurrentTemplate` | `boolean \| undefined` | Optional | - |
 
 ## Example (as JSON)
 
 ```json
 {
-  "id": null,
-  "smartId": null,
-  "type": null,
-  "subtype": null,
   "label": null,
   "className": null,
   "hardwareId": null,
@@ -39,9 +30,7 @@
   "commDevice": "multisense",
   "normallyClosed": null,
   "templateId": null,
-  "modules": null,
-  "points": null,
-  "events": null
+  "modules": null
 }
 ```
 

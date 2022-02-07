@@ -6,20 +6,20 @@
 
 import { array, nullable, object, Schema, string, unknown } from '../schema';
 import {
-  PeripheralClasses3Enum,
-  peripheralClasses3EnumSchema,
-} from './peripheralClasses3Enum';
+  PeripheralClassesEnum,
+  peripheralClassesEnumSchema,
+} from './peripheralClassesEnum';
 
 export interface ScannedPeripheral {
-  /** The name of the class that handles this peripheral e.g. enocean_dimmer */
-  className: PeripheralClasses3Enum;
+  /** Refers to the class within the code that represents a device */
+  className: PeripheralClassesEnum;
   /** The id of the end device e.g. aabbccdd as an enocean id for an enocean switch or 123 as a multisense network id for a smart power meter */
   hardwareId: string;
   modules: unknown[] | null;
 }
 
 export const scannedPeripheralSchema: Schema<ScannedPeripheral> = object({
-  className: ['className', peripheralClasses3EnumSchema],
+  className: ['className', peripheralClassesEnumSchema],
   hardwareId: ['hardwareId', string()],
   modules: ['modules', nullable(array(unknown()))],
 });

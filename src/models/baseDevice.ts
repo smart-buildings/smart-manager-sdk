@@ -6,28 +6,32 @@
 
 import { object, Schema, string } from '../schema';
 import {
-  DeviceCategory1Enum,
-  deviceCategory1EnumSchema,
-} from './deviceCategory1Enum';
+  DeviceCategoryEnum,
+  deviceCategoryEnumSchema,
+} from './deviceCategoryEnum';
 import {
-  PeripheralClasses1Enum,
-  peripheralClasses1EnumSchema,
-} from './peripheralClasses1Enum';
+  PeripheralClassesEnum,
+  peripheralClassesEnumSchema,
+} from './peripheralClassesEnum';
 
 export interface BaseDevice {
   /** Unique (within template) device identifier */
   id: string;
   /** Human-friendly label for the device */
   label: string;
-  /** Refers to the class within the code that represents this device */
-  className: PeripheralClasses1Enum;
-  /** Device category */
-  deviceCategory: DeviceCategory1Enum;
+  /** Refers to the class within the code that represents a device */
+  className: PeripheralClassesEnum;
+  /**
+   * We categorise devices mainly to automate commissioning of "wired"
+   * and "multisenseNetwork"s (e.g. create those peripherals
+   * without engineers having to manually link them on the native app)
+   */
+  deviceCategory: DeviceCategoryEnum;
 }
 
 export const baseDeviceSchema: Schema<BaseDevice> = object({
   id: ['id', string()],
   label: ['label', string()],
-  className: ['className', peripheralClasses1EnumSchema],
-  deviceCategory: ['deviceCategory', deviceCategory1EnumSchema],
+  className: ['className', peripheralClassesEnumSchema],
+  deviceCategory: ['deviceCategory', deviceCategoryEnumSchema],
 });

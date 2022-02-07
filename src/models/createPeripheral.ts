@@ -9,6 +9,7 @@ import {
   boolean,
   nullable,
   object,
+  optional,
   Schema,
   string,
   unknown,
@@ -18,8 +19,7 @@ import {
   peripheralClassesEnumSchema,
 } from './peripheralClassesEnum';
 
-/** From T, pick a set of properties whose keys are in the union K */
-export interface PickPeripheralExcludeKeyofPeripheralIdOrSmartIdOrTypeOrSubtype {
+export interface CreatePeripheral {
   label: string;
   /** Refers to the class within the code that represents a device */
   className: PeripheralClassesEnum;
@@ -38,17 +38,17 @@ export interface PickPeripheralExcludeKeyofPeripheralIdOrSmartIdOrTypeOrSubtype 
   templateId: string;
   /** List of add-on module/boards on this peripheral */
   modules: unknown[] | null;
+  addToCurrentTemplate?: boolean;
 }
 
-export const pickPeripheralExcludeKeyofPeripheralIdOrSmartIdOrTypeOrSubtypeSchema: Schema<PickPeripheralExcludeKeyofPeripheralIdOrSmartIdOrTypeOrSubtype> = object(
-  {
-    label: ['label', string()],
-    className: ['className', peripheralClassesEnumSchema],
-    hardwareId: ['hardwareId', string()],
-    gatewayId: ['gatewayId', nullable(string())],
-    commDevice: ['commDevice', string()],
-    normallyClosed: ['normallyClosed', nullable(boolean())],
-    templateId: ['templateId', string()],
-    modules: ['modules', nullable(array(unknown()))],
-  }
-);
+export const createPeripheralSchema: Schema<CreatePeripheral> = object({
+  label: ['label', string()],
+  className: ['className', peripheralClassesEnumSchema],
+  hardwareId: ['hardwareId', string()],
+  gatewayId: ['gatewayId', nullable(string())],
+  commDevice: ['commDevice', string()],
+  normallyClosed: ['normallyClosed', nullable(boolean())],
+  templateId: ['templateId', string()],
+  modules: ['modules', nullable(array(unknown()))],
+  addToCurrentTemplate: ['addToCurrentTemplate', optional(boolean())],
+});

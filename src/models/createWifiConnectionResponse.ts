@@ -6,20 +6,19 @@
 
 import { boolean, object, optional, Schema } from '../schema';
 import {
-  HotspotAction1Enum,
-  hotspotAction1EnumSchema,
-} from './hotspotAction1Enum';
+  HotspotActionEnum,
+  hotspotActionEnumSchema,
+} from './hotspotActionEnum';
 
 export interface CreateWifiConnectionResponse {
-  /** What will be done to hotspot if we were to connect to this wifi network */
-  hotspotAction?: HotspotAction1Enum;
+  hotspotAction?: HotspotActionEnum;
   /** What the request made with dryRun flag or not */
   dryRun?: boolean;
 }
 
 export const createWifiConnectionResponseSchema: Schema<CreateWifiConnectionResponse> = object(
   {
-    hotspotAction: ['hotspotAction', optional(hotspotAction1EnumSchema)],
+    hotspotAction: ['hotspotAction', optional(hotspotActionEnumSchema)],
     dryRun: ['dryRun', optional(boolean())],
   }
 );
